@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUTU — Private Waiting List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0D0D0D;
+    --ivory: #F2EDE4;
+    --gold: #C9A84C;
+    --gold-light: #E8D49A;
+    --stone: #8C8070;
+    --stone-light: #BEB4A8;
+    --surface: #FAFAF7;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--ink);
+    color: var(--ivory);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(13,13,13,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(201,168,76,0.15);
+  }
+
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--ivory);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .nav-badge {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 0.5px solid var(--gold);
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+    background-image: url(hero-bg.jpg);
+    background-size: cover;
+    background-position: center 20%;
+  }
+
+    .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(13,13,13,0.5) 0%, rgba(13,13,13,0.85) 55%, rgba(13,13,13,0.97) 100%);
+  }
+
+
+
+
+
+
+  .hero > * { position: relative; z-index: 1; }
+
+  .gold-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--gold));
+    margin: 0 auto 2.5rem;
+    opacity: 0;
+    animation: fadeDown 1.2s ease forwards 0.3s;
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: scaleY(0); transform-origin: top; }
+    to { opacity: 1; transform: scaleY(1); }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 0.5s;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--ivory);
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 0.7s;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--stone-light);
+    max-width: 420px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 0.9s;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--gold);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    border-radius: 0;
+    transition: background 0.2s, transform 0.15s;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 1.1s;
+  }
+
+  .hero-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease forwards 1.4s;
+  }
+
+  .hero-scroll span {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+
+  .scroll-line {
+    width: 0.5px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--stone), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; } 50% { opacity: 1; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* COLLECTION STRIP */
+  .collection {
+    background: var(--ivory);
+    color: var(--ink);
+    padding: 5rem 2rem;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+
+  .product-card {
+    background: var(--surface);
+    border: 0.5px solid rgba(140,128,112,0.2);
+    transition: border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .product-img-wrap {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: #1a1a1a;
+  }
+
+  .product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .product-card:hover .product-img {
+    transform: scale(1.04);
+  }
+
+  .product-info {
+    padding: 1.5rem 1.75rem 1.75rem;
+  }
+
+  .product-card:hover { border-color: var(--gold); }
+
+  .product-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .product-desc {
+    font-size: 0.8rem;
+    color: var(--stone);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  .product-deposit {
+    font-size: 0.7rem;
+    color: var(--stone);
+    margin-top: 0.25rem;
+  }
+
+  /* PROCESS */
+  .process {
+    background: var(--ink);
+    padding: 6rem 2rem;
+    border-top: 0.5px solid rgba(201,168,76,0.15);
+  }
+
+  .process-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .process-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 300;
+    color: var(--ivory);
+    text-align: center;
+    margin-bottom: 3.5rem;
+    line-height: 1.2;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.06);
+  }
+
+  .step:last-child { border-bottom: none; }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    padding-top: 0.2rem;
+  }
+
+  .step-content h3 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ivory);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
+  }
+
+  .step-content p {
+    font-size: 0.82rem;
+    color: var(--stone-light);
+    line-height: 1.75;
+  }
+
+  /* WAITLIST FORM */
+  .waitlist {
+    background: var(--surface);
+    color: var(--ink);
+    padding: 6rem 2rem;
+  }
+
+  .waitlist-inner {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .waitlist-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    line-height: 1.1;
+  }
+
+  .waitlist-sub {
+    font-size: 0.85rem;
+    color: var(--stone);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .deposit-notice {
+    background: var(--ink);
+    color: var(--ivory);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    border-left: 2px solid var(--gold);
+  }
+
+  .deposit-notice p {
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: var(--stone-light);
+  }
+
+  .deposit-notice strong {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: var(--white);
+    border: 0.5px solid rgba(140,128,112,0.35);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    border-radius: 0;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238C8070' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .consent-box {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .consent-box input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--gold);
+    cursor: pointer;
+  }
+
+  .consent-box label {
+    font-size: 0.75rem;
+    color: var(--stone);
+    line-height: 1.6;
+    cursor: pointer;
+  }
+
+  .consent-box label a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--ink);
+    color: var(--gold);
+    border: 0.5px solid var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    border-radius: 0;
+  }
+
+  .submit-btn:hover {
+    background: var(--gold);
+    color: var(--ink);
+    border-color: var(--gold);
+  }
+
+  .form-note {
+    font-size: 0.72rem;
+    color: var(--stone);
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 1.6;
+  }
+
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 2.5rem;
+    border: 0.5px solid rgba(201,168,76,0.3);
+    background: rgba(201,168,76,0.05);
+  }
+
+  .success-msg .gold-tick {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .success-msg h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .success-msg p {
+    font-size: 0.82rem;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+
+  /* LEGAL */
+  .legal-section {
+    background: #0A0A0A;
+    padding: 5rem 2rem;
+    border-top: 0.5px solid rgba(255,255,255,0.06);
+  }
+
+  .legal-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .legal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--ivory);
+    margin-bottom: 2rem;
+  }
+
+  .legal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .legal-card {
+    padding: 1.25rem;
+    border: 0.5px solid rgba(255,255,255,0.07);
+  }
+
+  .legal-card h4 {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .legal-card p {
+    font-size: 0.78rem;
+    color: var(--stone-light);
+    line-height: 1.7;
+  }
+
+  .terms-block {
+    border: 0.5px solid rgba(255,255,255,0.07);
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .terms-block h4 {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--stone-light);
+    margin-bottom: 1rem;
+  }
+
+  .terms-block ol {
+    padding-left: 1.25rem;
+  }
+
+  .terms-block ol li {
+    font-size: 0.78rem;
+    color: var(--stone);
+    line-height: 1.8;
+    margin-bottom: 0.4rem;
+  }
+
+  .terms-block ol li strong {
+    color: var(--stone-light);
+    font-weight: 500;
+  }
+
+  .legal-footer {
+    font-size: 0.72rem;
+    color: var(--stone);
+    line-height: 1.7;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid rgba(255,255,255,0.05);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #080808;
+    padding: 2rem;
+    text-align: center;
+    border-top: 0.5px solid rgba(255,255,255,0.04);
+  }
+
+  footer p {
+    font-size: 0.72rem;
+    color: var(--stone);
+    line-height: 1.8;
+  }
+
+  footer a {
+    color: var(--stone-light);
+    text-decoration: none;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    nav { padding: 1rem 1.25rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .legal-grid { grid-template-columns: 1fr; }
+    .products { grid-template-columns: 1fr; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .collection, .process, .waitlist, .legal-section { padding: 4rem 1.25rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .gold-line, .hero-eyebrow, .hero-title, .hero-sub, .hero-cta, .hero-scroll { opacity: 1 !important; transform: none !important; }
+  }
+
+  /* STORY SECTION */
+  .story {
+    background: var(--ivory);
+    color: var(--ink);
+    padding: 6rem 2rem;
+  }
+
+  .story-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .story-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .story-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 2rem;
+  }
+
+  .story-title em {
+    font-style: italic;
+    color: var(--stone);
+  }
+
+  .story-divider {
+    width: 40px;
+    height: 0.5px;
+    background: var(--gold);
+    margin: 0 auto 2rem;
+  }
+
+  .story-body {
+    font-size: 1rem;
+    color: var(--stone);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  .story-body strong {
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .story-closing {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold);
+    margin-top: 2.5rem;
+    letter-spacing: 0.02em;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">LUTU</a>
+  <span class="nav-badge">Private List Open</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="gold-line"></div>
+  <p class="hero-eyebrow">Cape Town — Limited Edition — Waiting List Open</p>
+  <h1 class="hero-title">Worn once. <em>Remembered always.</em></h1>
+  <p class="hero-sub">Some garments are bought. These are kept. Premium modest wear, chosen for Cape Town. Ten pieces per style — join the list.</p>
+  <a href="#waitlist" class="hero-cta">Join the waiting list</a>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section class="collection" id="collection">
+  <p class="section-label">The Collection</p>
+  <div class="products">
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="girls-abaya.jpg" alt="Girls Sherpa Abaya" class="product-img">
+      </div>
+      <div class="product-info">
+        <span class="product-tag">Girls — Sizes 4–14</span>
+        <h2 class="product-name">Sherpa Abaya</h2>
+        <p class="product-desc">Blush pink exterior with white sherpa lining and collar. Floor length. Structured for movement.</p>
+        <p class="product-price">R 2,500 – 3,200</p>
+        
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="womens-tribal.jpg" alt="Women Tribal Coat" class="product-img">
+      </div>
+      <div class="product-info">
+        <span class="product-tag">Women — One Size</span>
+        <h2 class="product-name">Tribal Coat</h2>
+        <p class="product-desc">Charcoal wool with woven geometric trim running front and cuff. Hooded. Floor length. Statement silhouette.</p>
+        <p class="product-price">R 4,000 – 5,200</p>
+        
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="mens-navy.jpg" alt="Men Navy Embroidered Coat" class="product-img">
+      </div>
+      <div class="product-info">
+        <span class="product-tag">Men — S to XXL</span>
+        <h2 class="product-name">Navy Embroidered Coat</h2>
+        <p class="product-desc">Midnight navy with hand-stitched gold chain embroidery. Hooded. Maxi length. For occasions that matter.</p>
+        <p class="product-price">R 5,200 – 6,500</p>
+        
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="mens-bisht.jpg" alt="Men Gold Bisht" class="product-img">
+      </div>
+      <div class="product-info">
+        <span class="product-tag">Men — S to XXL</span>
+        <h2 class="product-name">Gold Bisht</h2>
+        <p class="product-desc">Deep brown with gold geometric embroidery and sherpa interior lining. The heritage piece. Made to last a generation.</p>
+        <p class="product-price">R 6,800 – 8,500</p>
+        
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="occasion-coat.jpg" alt="Occasion Coat" class="product-img">
+      </div>
+      <div class="product-info">
+        <span class="product-tag">Women — Occasion Wear</span>
+        <h2 class="product-name">The Occasion Coat</h2>
+        <p class="product-desc">Navy velvet with gold heritage trim, worn open over ivory formal wear. For the mother of the bride, the send-off, the night that gets framed.</p>
+        <p class="product-price">R 5,500 – 7,200</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- OUR STORY -->
+<section class="story" id="story">
+  <div class="story-inner">
+    <span class="story-eyebrow">Our Story</span>
+    <h2 class="story-title">Some garments are bought.<br><em>These are kept.</em></h2>
+    <div class="story-divider"></div>
+    <p class="story-body">
+      LUTU exists for the moments that matter — Eid mornings, wedding nights, the occasions your family will talk about for years. We select pieces where modest dressing is not a trend but a <strong>tradition passed through generations.</strong>
+    </p>
+    <p class="story-body">
+      Every piece is chosen for one reason: it has to feel as significant the tenth time you wear it as it did the first. No fast fashion. No compromise. Nothing that won't outlast the memory it was worn for.
+    </p>
+    <p class="story-body">
+      For Cape Town. For your family. <strong>For keeps.</strong>
+    </p>
+    <p class="story-closing">Built on quality. Defined by timeless style.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="process" id="how">
+  <div class="process-inner">
+    <h2 class="process-title">How the waiting list works</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <div class="step-content">
+          <h3>Join the list</h3>
+          <p>Fill in the form below. No payment, no commitment — just your name, contact, and the piece you're interested in.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <div class="step-content">
+          <h3>Confirm your order</h3>
+          <p>When stock is confirmed, you hear from us first. You decide then whether to order. No obligation to proceed — this is your spot in line, not a contract.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <div class="step-content">
+          <h3>Decide, no pressure</h3>
+          <p>You choose whether to proceed. Nothing is charged automatically. We'll share full pricing and payment details only once you're ready to order.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">4</span>
+        <div class="step-content">
+          <h3>Your garment arrives</h3>
+          <p>Once your order is confirmed, your piece is sourced and delivered by courier. Timing confirmed when we reach out — no blanket promises made here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST FORM -->
+<section class="waitlist" id="waitlist">
+  <div class="waitlist-inner">
+    <h2 class="waitlist-title">Join the waiting list</h2>
+    <p class="waitlist-sub">Ten pieces per style. Join the list — we contact you first when stock and pricing are confirmed. No payment required to join.</p>
+
+    <div class="deposit-notice">
+      <p><strong>How this works.</strong> This is a waiting list — not a pre-order. Joining costs nothing and commits you to nothing. When stock and pricing are confirmed, we contact you first. You then decide whether to proceed — no payment is required to join, and nothing is charged without your agreement.</p>
+    </div>
+
+    <form id="waitlistForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First name</label>
+          <input type="text" id="fname" name="fname" placeholder="Fatima" required>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last name</label>
+          <input type="text" id="lname" name="lname" placeholder="Adams" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="whatsapp">WhatsApp number</label>
+        <input type="tel" id="whatsapp" name="whatsapp" placeholder="+27 82 000 0000" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="product">Which piece are you interested in?</label>
+        <select id="product" name="product" required>
+          <option value="" disabled selected>Select a garment</option>
+          <option value="girls-sherpa">Girls' Sherpa Abaya — R 2,500–3,200</option>
+          <option value="women-tribal">Women's Tribal Coat — R 4,000–5,200</option>
+          <option value="men-navy">Men's Navy Embroidered Coat — R 5,200–6,500</option>
+          <option value="men-bisht">Men's Gold Bisht — R 6,800–8,500</option>
+          <option value="occasion-coat">The Occasion Coat — R 5,500–7,200</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="budget">Your comfortable price range</label>
+        <select id="budget" name="budget" required>
+          <option value="" disabled selected>Select your range</option>
+          <option value="under3k">Under R 3,000</option>
+          <option value="3k-5k">R 3,000 – R 5,000</option>
+          <option value="5k-8k">R 5,000 – R 8,000</option>
+          <option value="8kplus">R 8,000+</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="size">Size / Age (if applicable)</label>
+        <input type="text" id="size" name="size" placeholder="e.g. Medium, Age 8, L/XL">
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" placeholder="Cape Town" required>
+      </div>
+
+      <div class="consent-box">
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I have read and accept the <a href="#terms-section">waiting list terms</a> below. I understand this is a waiting list — no payment or commitment is made by joining.</label>
+      </div>
+
+      <div class="consent-box">
+        <input type="checkbox" id="popia" name="popia" required>
+        <label for="popia">I consent to LUTU collecting and using my contact details to process my order, in line with the Protection of Personal Information Act (POPIA).</label>
+      </div>
+
+      <button type="submit" class="submit-btn">Join the waiting list</button>
+      <p class="form-note">No payment. No commitment. We contact you when stock and pricing are confirmed.</p>
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      <div class="gold-tick">✦</div>
+      <h3>You're on the list.</h3>
+      <p>We'll be in touch on WhatsApp when stock and pricing are confirmed. You choose then whether to proceed — no obligation.<br>Thank you for your interest.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LEGAL -->
+<section class="legal-section" id="terms-section">
+  <div class="legal-inner">
+    <h2 class="legal-title">Legal — what protects you</h2>
+
+    <div class="legal-grid">
+      <div class="legal-card">
+        <h4>CPA Section 17(3)</h4>
+        <p>Where an order is later placed, a supplier may require a reasonable deposit. No deposit or payment is collected at the waiting list stage — only if and when you choose to order.</p>
+      </div>
+      <div class="legal-card">
+        <h4>ECTA Section 44</h4>
+        <p>If you place an order and pay a deposit, you have a 7-day cooling-off period from that date to cancel for a full refund — no reason required. Joining this waiting list involves no payment.</p>
+      </div>
+      <div class="legal-card">
+        <h4>ECTA Section 46</h4>
+        <p>ECTA requires order fulfilment within 30 days unless otherwise agreed in writing. Delivery timing is agreed with you individually when your order is confirmed — not at the point of joining the waiting list.</p>
+      </div>
+      <div class="legal-card">
+        <h4>POPIA</h4>
+        <p>Your personal information is used only to process your order. It is not sold or shared with third parties. You may request deletion of your data at any time.</p>
+      </div>
+    </div>
+
+    <div class="terms-block" id="terms-full">
+      <h4>Waiting List Terms and Conditions</h4>
+      <ol>
+        <li><strong>Waiting list nature.</strong> This is a waiting list, not a pre-order. Joining creates no obligation to purchase and no delivery commitment. You will be contacted when stock is confirmed and may choose at that point whether to proceed.</li>
+        <li><strong>Deposit.</strong> No payment is required to join this waiting list. If and when you choose to proceed with an order, a reasonable deposit may be required to confirm it — payment details will be shared with you individually at that stage.</li>
+        <li><strong>Cooling-off period.</strong> Joining the waiting list carries no cooling-off obligation as no payment is made. Should you later place an order and pay a deposit, Section 44 of the Electronic Communications and Transactions Act 25 of 2002 applies — you have 7 days from the date of deposit to cancel for a full refund via WhatsApp.</li>
+        <li><strong>Cancellation after cooling-off.</strong> After the 7-day cooling-off period, deposits are non-refundable unless LUTU is unable to fulfil your order.</li>
+        <li><strong>Inability to fulfil.</strong> If we cannot deliver your order within the stated window, you will be notified immediately and offered either a full refund of your deposit or a revised delivery date.</li>
+        <li><strong>Delivery.</strong> Delivery timing is confirmed when we contact you to proceed — no fixed window is guaranteed at the point of joining the list. All orders are delivered via courier within South Africa. Courier cost (estimated R 120–180) is confirmed at dispatch.</li>
+        <li><strong>Product accuracy.</strong> All garments are as described and represented. If your item arrives materially different from its description, you may return it within 10 business days for a full refund including return courier cost.</li>
+        <li><strong>Deposits held.</strong> Should a deposit be collected for a confirmed order, it will be held in accordance with the Consumer Protection Act and not disbursed until the order is fulfilled.</li>
+        <li><strong>Governing law.</strong> These terms are governed by the laws of the Republic of South Africa.</li>
+        <li><strong>Disputes.</strong> Disputes may be referred to the National Consumer Commission: 0860 266 786 or www.thencc.org.za. The Consumer Goods and Services Ombud is also available at www.cgso.org.za.</li>
+        <li><strong>Contact.</strong> WhatsApp: [YOUR NUMBER] | Email: [YOUR EMAIL]</li>
+      </ol>
+    </div>
+
+    <p class="legal-footer">This page constitutes a direct marketing offer under the Consumer Protection Act 68 of 2008 and an electronic transaction under the Electronic Communications and Transactions Act 25 of 2002. LUTU operates as a sole proprietor under South African law. This is not legal advice — for independent counsel contact a South African attorney. National Consumer Commission: 0860 266 786.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>LUTU — Cape Town, South Africa<br>
+  <a href="mailto:hello@heritagemodestt.co.za">hello@waqar.co.za</a> &nbsp;·&nbsp; WhatsApp: [YOUR NUMBER]<br>
+  <small style="color:#555; font-size:0.65rem; display:block; margin-top:0.5rem;">Consumer Protection Act 68 of 2008 &nbsp;·&nbsp; ECTA 25 of 2002 &nbsp;·&nbsp; POPIA &nbsp;·&nbsp; NCC: 0860 266 786</small>
+  </p>
+</footer>
+
+<script>
+  document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const fname = document.getElementById('fname').value.trim();
+    const product = document.getElementById('product').options[document.getElementById('product').selectedIndex].text;
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+
+    // Build WhatsApp message to seller
+    const budget = document.getElementById('budget').options[document.getElementById('budget').selectedIndex].text;
+    const msg = encodeURIComponent(
+      "New waiting list entry:\n\n" +
+      "Name: " + fname + " " + document.getElementById('lname').value.trim() + "\n" +
+      "WhatsApp: " + whatsapp + "\n" +
+      "Email: " + document.getElementById('email').value.trim() + "\n" +
+      "Product: " + product + "\n" +
+      "Budget range: " + budget + "\n" +
+      "Size: " + (document.getElementById('size').value || 'Not specified') + "\n" +
+      "City: " + document.getElementById('city').value
+    );
+
+    // Hide form, show success
+    document.getElementById('waitlistForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+
+    // Open WhatsApp to seller after short delay
+    setTimeout(function() {
+      window.open("https://wa.me/[YOURNUMBER]?text=" + msg, '_blank');
+    }, 800);
+  });
+</script>
+
+</body>
+</html>
