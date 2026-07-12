@@ -748,7 +748,7 @@
         <img src="womens-tribal.jpg" alt="Women Tribal Coat" class="product-img">
       </div>
       <div class="product-info">
-        <span class="product-tag">Women — One Size</span>
+        <span class="product-tag">Women — Sizing at order</span>
         <h2 class="product-name">Tribal Coat</h2>
         <p class="product-desc">Charcoal wool with woven geometric trim running front and cuff. Hooded. Floor length. Statement silhouette.</p>
         <p class="product-price">R 4,000 – 5,200</p>
@@ -774,7 +774,7 @@
         <img src="occasion-coat.jpg" alt="Occasion Coat" class="product-img">
       </div>
       <div class="product-info">
-        <span class="product-tag">Women — Occasion Wear</span>
+        <span class="product-tag">Women — Occasion Wear · Sizing at order</span>
         <h2 class="product-name">The Occasion Coat</h2>
         <p class="product-desc">Navy velvet with gold heritage trim, worn open over ivory formal wear. For the mother of the bride, the send-off, the night that gets framed.</p>
         <p class="product-price">R 5,500 – 7,200</p>
@@ -912,6 +912,18 @@
       </div>
 
       <div class="form-group">
+        <label for="occasion">When would you most likely wear this?</label>
+        <select id="occasion" name="occasion" required>
+          <option value="" disabled selected>Select an occasion</option>
+          <option value="eid">Eid</option>
+          <option value="wedding">A wedding</option>
+          <option value="winter-everyday">Cold weather, everyday wear</option>
+          <option value="gift">As a gift for someone else</option>
+          <option value="not-sure">Not sure yet — just love the design</option>
+        </select>
+      </div>
+
+      <div class="form-group">
         <label for="budget">Your comfortable price range</label>
         <select id="budget" name="budget" required>
           <option value="" disabled selected>Select your range</option>
@@ -1018,12 +1030,14 @@
 
     // Build WhatsApp message to seller
     const budget = document.getElementById('budget').options[document.getElementById('budget').selectedIndex].text;
+    const occasion = document.getElementById('occasion').options[document.getElementById('occasion').selectedIndex].text;
     const msg = encodeURIComponent(
       "New waiting list entry:\n\n" +
       "Name: " + fname + " " + document.getElementById('lname').value.trim() + "\n" +
       "WhatsApp: " + whatsapp + "\n" +
       "Email: " + document.getElementById('email').value.trim() + "\n" +
       "Product: " + product + "\n" +
+      "Occasion: " + occasion + "\n" +
       "Budget range: " + budget + "\n" +
       "Size: " + (document.getElementById('size').value || 'Not specified') + "\n" +
       "City: " + document.getElementById('city').value
