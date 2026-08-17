@@ -376,6 +376,15 @@
     line-height: 1.7;
   }
 
+  .price-band {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    letter-spacing: 0.02em;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+
   .deposit-notice {
     background: var(--ink);
     color: var(--ivory);
@@ -751,7 +760,7 @@
         <span class="product-tag">Women — Sizing at order</span>
         <h2 class="product-name">Tribal Coat</h2>
         <p class="product-desc">Charcoal wool with woven geometric trim running front and cuff. Hooded. Floor length. Statement silhouette.</p>
-        <p class="product-price">R 4,000 – 5,200</p>
+        <p class="product-price">R 6,500 – 7,500</p>
         
       </div>
     </div>
@@ -764,7 +773,7 @@
         <span class="product-tag">Men — S to XXL</span>
         <h2 class="product-name">Navy Embroidered Coat</h2>
         <p class="product-desc">Midnight navy with hand-stitched gold chain embroidery. Hooded. Maxi length. For occasions that matter.</p>
-        <p class="product-price">R 5,200 – 6,500</p>
+        <p class="product-price">R 6,800 – 7,800</p>
         
       </div>
     </div>
@@ -777,18 +786,18 @@
         <span class="product-tag">Women — Occasion Wear · Sizing at order</span>
         <h2 class="product-name">The Occasion Coat</h2>
         <p class="product-desc">Navy velvet with gold heritage trim, worn open over ivory formal wear. For the mother of the bride, the send-off, the night that gets framed.</p>
-        <p class="product-price">R 5,500 – 7,200</p>
+        <p class="product-price">R 7,200 – 8,200</p>
       </div>
     </div>
 
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="mens-bisht.jpg" alt="Men Gold Bisht" class="product-img">
+        <img src="mens-bisht.jpg" alt="Men Gold Farwah" class="product-img">
       </div>
       <div class="product-info">
         <span class="product-tag">Men — S to XXL</span>
-        <h2 class="product-name">Gold Bisht</h2>
-        <p class="product-desc">Deep brown with gold geometric embroidery and sherpa interior lining. The heritage piece. Made to last a generation.</p>
+        <h2 class="product-name">Gold Farwah</h2>
+        <p class="product-desc">A farwah-inspired occasion coat in deep brown, with gold geometric embroidery and sherpa interior lining. The heritage piece. Made to last a generation.</p>
         <p class="product-price">R 6,800 – 8,500</p>
         
       </div>
@@ -873,6 +882,8 @@
     <h2 class="waitlist-title">Join the waiting list</h2>
     <p class="waitlist-sub">Ten pieces per style. Join the list — we contact you first when stock and pricing are confirmed. No payment required to join.</p>
 
+    <p class="price-band">Coats start at R 6,500.</p>
+
     <div class="deposit-notice">
       <p><strong>How this works.</strong> This is a waiting list — not a pre-order. Joining costs nothing and commits you to nothing. When stock and pricing are confirmed, we contact you first. You then decide whether to proceed — no payment is required to join, and nothing is charged without your agreement.</p>
     </div>
@@ -903,10 +914,10 @@
         <label for="product">Which piece are you interested in?</label>
         <select id="product" name="product" required>
           <option value="" disabled selected>Select a garment</option>
-          <option value="women-tribal">Women's Tribal Coat — R 4,000–5,200</option>
-          <option value="men-navy">Men's Navy Embroidered Coat — R 5,200–6,500</option>
-          <option value="occasion-coat">The Occasion Coat — R 5,500–7,200</option>
-          <option value="men-bisht">Men's Gold Bisht — R 6,800–8,500</option>
+          <option value="women-tribal">Women's Tribal Coat — R 6,500–7,500</option>
+          <option value="men-navy">Men's Navy Embroidered Coat — R 6,800–7,800</option>
+          <option value="occasion-coat">The Occasion Coat — R 7,200–8,200</option>
+          <option value="men-farwah">Men's Gold Farwah — R 6,800–8,500</option>
           <option value="girls-sherpa">Girls' Sherpa Abaya (Family Add-On) — R 2,500–3,200</option>
         </select>
       </div>
@@ -924,13 +935,13 @@
       </div>
 
       <div class="form-group">
-        <label for="budget">Your comfortable price range</label>
-        <select id="budget" name="budget" required>
-          <option value="" disabled selected>Select your range</option>
-          <option value="under3k">Under R 3,000</option>
-          <option value="3k-5k">R 3,000 – R 5,000</option>
-          <option value="5k-8k">R 5,000 – R 8,000</option>
-          <option value="8kplus">R 8,000+</option>
+        <label for="timing">Roughly when do you need it?</label>
+        <select id="timing" name="timing" required>
+          <option value="" disabled selected>Select a timeframe</option>
+          <option value="within-month">Within the next month</option>
+          <option value="1-3-months">In one to three months</option>
+          <option value="later-this-year">Later this year</option>
+          <option value="no-fixed-date">No fixed date</option>
         </select>
       </div>
 
@@ -1021,26 +1032,64 @@
 </footer>
 
 <script>
+  // Capture campaign source once per session: UTM params from the URL, else the
+  // referring host. Hostname only — never the full referring URL or its query
+  // string, so no third-party personal data is carried into the message (POPIA).
+  var SOURCE_KEY = 'lutu_source';
+
+  function captureSource() {
+    var params = new URLSearchParams(window.location.search);
+    var parts = [];
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(function(key) {
+      var value = params.get(key);
+      if (value) parts.push(key.replace('utm_', '') + '=' + value.slice(0, 60));
+    });
+
+    // A freshly tagged link always wins over whatever this session started with.
+    if (parts.length) {
+      var tagged = parts.join(' · ');
+      try { sessionStorage.setItem(SOURCE_KEY, tagged); } catch (e) {}
+      return tagged;
+    }
+
+    try {
+      var stored = sessionStorage.getItem(SOURCE_KEY);
+      if (stored) return stored;
+    } catch (e) { /* private browsing — fall through */ }
+
+    if (document.referrer) {
+      try {
+        var host = new URL(document.referrer).hostname;
+        if (host && host !== window.location.hostname) parts.push('referrer=' + host);
+      } catch (e) { /* malformed referrer — ignore */ }
+    }
+
+    var source = parts.join(' · ') || 'direct';
+    try { sessionStorage.setItem(SOURCE_KEY, source); } catch (e) {}
+    return source;
+  }
+
+  var leadSource = captureSource();
+
+  function selectedText(id) {
+    var el = document.getElementById(id);
+    return el.options[el.selectedIndex].text;
+  }
+
   document.getElementById('waitlistForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    const fname = document.getElementById('fname').value.trim();
-    const product = document.getElementById('product').options[document.getElementById('product').selectedIndex].text;
-    const whatsapp = document.getElementById('whatsapp').value.trim();
 
-    // Build WhatsApp message to seller
-    const budget = document.getElementById('budget').options[document.getElementById('budget').selectedIndex].text;
-    const occasion = document.getElementById('occasion').options[document.getElementById('occasion').selectedIndex].text;
-    const msg = encodeURIComponent(
+    var msg = encodeURIComponent(
       "New waiting list entry:\n\n" +
-      "Name: " + fname + " " + document.getElementById('lname').value.trim() + "\n" +
-      "WhatsApp: " + whatsapp + "\n" +
+      "Name: " + document.getElementById('fname').value.trim() + " " + document.getElementById('lname').value.trim() + "\n" +
+      "WhatsApp: " + document.getElementById('whatsapp').value.trim() + "\n" +
       "Email: " + document.getElementById('email').value.trim() + "\n" +
-      "Product: " + product + "\n" +
-      "Occasion: " + occasion + "\n" +
-      "Budget range: " + budget + "\n" +
-      "Size: " + (document.getElementById('size').value || 'Not specified') + "\n" +
-      "City: " + document.getElementById('city').value
+      "Product: " + selectedText('product') + "\n" +
+      "Occasion: " + selectedText('occasion') + "\n" +
+      "Timing: " + selectedText('timing') + "\n" +
+      "City: " + document.getElementById('city').value.trim() + "\n" +
+      "Size: " + (document.getElementById('size').value.trim() || 'Not specified') + "\n" +
+      "Source: " + leadSource
     );
 
     // Hide form, show success
