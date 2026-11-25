@@ -3,62 +3,458 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LUTU — Cape Town</title>
-<meta name="description" content="LUTU is a Cape Town content studio. A new site is on the way. Reach us on WhatsApp or by email in the meantime.">
-<meta name="robots" content="index,follow">
+<title>LUTU — Cape Town content studio for Saudi and Gulf brands</title>
+<meta name="description" content="Send your products to Cape Town. We shoot them with real models on Cape Town locations and send back finished photos and vertical video. Modest styling done with care. Priced in USD.">
+<link rel="canonical" href="https://lutu.co.za/">
+<link rel="alternate" hreflang="en" href="https://lutu.co.za/">
+<link rel="alternate" hreflang="ar" href="https://lutu.co.za/ar/">
+<link rel="alternate" hreflang="x-default" href="https://lutu.co.za/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="LUTU — Cape Town">
-<meta property="og:description" content="A Cape Town content studio. New site on the way.">
-<style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  :root{
-    --ink:#1A1816;--sand:#E8DFD1;--sand-deep:#CDBFA8;--offwhite:#FAF7F2;--teal:#2F6B6B;
-    --serif:Georgia,'Times New Roman',serif;
-    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
-  }
-  body{
-    font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.7;
-    color:var(--sand);background:var(--ink);
-    min-height:100svh;display:flex;align-items:center;justify-content:center;
-    padding:2rem 1.5rem;-webkit-font-smoothing:antialiased;
-  }
-  main{max-width:34rem;text-align:center}
-  .brand{
-    font-family:var(--serif);font-size:1.5rem;letter-spacing:.3em;text-transform:uppercase;
-    color:var(--offwhite);margin-bottom:2.5rem;
-  }
-  .rule{width:1px;height:48px;background:linear-gradient(to bottom,transparent,var(--sand-deep));margin:0 auto 2.5rem}
-  h1{
-    font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,5vw,2.1rem);
-    line-height:1.3;color:var(--offwhite);margin-bottom:1.25rem;text-wrap:balance;
-  }
-  p{color:var(--sand-deep);margin-bottom:2.5rem}
-  .links{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
-  a.btn{
-    display:inline-block;font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
-    padding:1rem 2rem;text-decoration:none;border:1px solid transparent;transition:background .2s,color .2s;
-  }
-  .btn--primary{background:var(--teal);color:#fff}
-  .btn--primary:hover{background:#4A8F8C}
-  .btn--ghost{color:var(--offwhite);border-color:rgba(250,247,242,.4)}
-  .btn--ghost:hover{background:var(--offwhite);color:var(--ink)}
-  a:focus-visible{outline:2px solid var(--sand-deep);outline-offset:3px}
-  footer{margin-top:3.5rem;font-size:.72rem;color:#6B6358;line-height:1.8}
-</style>
+<meta property="og:locale" content="en">
+<meta property="og:locale:alternate" content="ar">
+<meta property="og:url" content="https://lutu.co.za/">
+<meta property="og:site_name" content="LUTU">
+<meta property="og:title" content="LUTU — Cape Town content studio for Saudi and Gulf brands">
+<meta property="og:description" content="You send the products. We send back the content. Shot in Cape Town with real models, delivered in about three weeks.">
+<meta property="og:image" content="https://lutu.co.za/assets/share-card.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Wind-sculpted sand dunes outside Cape Town at golden hour, with Table Mountain on the horizon.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lutu.co.za/assets/share-card.webp">
+<meta name="twitter:title" content="LUTU — Cape Town content studio for Saudi and Gulf brands">
+<meta name="twitter:description" content="You send the products. We send back the content.">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="/css/style.css">
+<!-- Analytics: enable in /config/site.json, then uncomment. No cookie banner required.
+<script defer data-domain="lutu.co.za" src="https://plausible.io/js/script.js"></script> -->
 </head>
 <body>
-<main>
-  <p class="brand">LUTU</p>
-  <div class="rule"></div>
-  <h1>A Cape Town content studio.</h1>
-  <p>We shoot product and fashion content in Cape Town for brands in Saudi Arabia and the Gulf. A new site is on the way.</p>
-  <div class="links">
-    <a class="btn btn--primary" href="https://wa.me/27824617739?text=Hi%20LUTU">WhatsApp us</a>
-    <a class="btn btn--ghost" href="mailto:lutu.official@gmail.com">Email us</a>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="season-banner" id="season-banner">
+  Cape Town shoot season runs late October to March.<span id="season-date"></span>
+</div>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="/">LUTU</a>
+    <nav class="header-actions" aria-label="Site">
+      <a class="lang-switch" href="/ar/" hreflang="ar" lang="ar">العربية</a>
+      <a class="btn btn--primary" href="#enquiry-section">Get a quote</a>
+    </nav>
   </div>
-  <footer>
-    LUTU (Pty) Ltd &nbsp;·&nbsp; Cape Town, South Africa
-  </footer>
+</header>
+
+<main id="main">
+
+<!-- 1 ─ HERO -->
+<section class="hero">
+  <div class="hero__media" aria-hidden="true">
+    <img src="/assets/hero-coast.webp"
+         srcset="/assets/hero-coast-900.webp 900w, /assets/hero-coast.webp 1600w"
+         sizes="100vw" width="1600" height="900" alt="" fetchpriority="high" decoding="async">
+  </div>
+  <div class="wrap hero__inner">
+    <span class="eyebrow" style="color:#E8DFD1">Cape Town · Arabia meets Africa</span>
+    <h1>Your Cape Town shoot team. You send the products. We send back the content.</h1>
+    <p class="hero__sub">A content studio for Saudi and Gulf brands. Real models, Cape Town locations, modest styling done with care. You never have to fly.</p>
+    <div class="hero__cta">
+      <a class="btn btn--primary" data-where="hero" href="https://wa.me/27824617739?text=Hi%20LUTU%2C%20I%27d%20like%20a%20quote%20for%20a%20shoot">WhatsApp us</a>
+      <a class="btn btn--ghost" href="#packs" style="color:#FAF7F2;border-color:#FAF7F2">See the packs</a>
+    </div>
+    <p class="fine" style="margin-top:1.5rem;color:#CDBFA8">Background: an AI-generated impression of the Cape coast, not our photography. Our own work replaces it after the first shoot. We will never show someone else&rsquo;s work as ours.</p>
+  </div>
+</section>
+
+<!-- 2 ─ WHAT WE DO -->
+<section class="section" id="what-we-do">
+  <div class="wrap">
+    <span class="eyebrow">What we do</span>
+    <h2>Three things, in this order.</h2>
+    <div class="grid grid--3" style="margin-top:2.5rem">
+
+      <article class="card service--lead">
+        <span class="tag">The main offer</span>
+        <h3>Remote shoots</h3>
+        <p>You courier your products to Cape Town. We shoot them with real models on Cape Town locations, then deliver finished photographs and short vertical videos, with AI-assisted extra images where you need volume. This is the only service we are selling right now.</p>
+      </article>
+
+      <article class="card">
+        <span class="tag">Also available</span>
+        <h3>Production and location help</h3>
+        <p>For Gulf brands and creators who want to shoot in South Africa themselves: crews, locations, permits, Muslim-friendly logistics and an Arabic-speaking contact on the ground.</p>
+      </article>
+
+      <article class="card">
+        <h3>Coming later</h3>
+        <p>A modest occasion-wear capsule with a Cape Town artist. Not on sale, not yet made.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 3 ─ THE OFFER -->
+<section class="section section--sand" id="offer">
+  <div class="wrap">
+    <span class="eyebrow">The offer</span>
+    <h2>Ramadan &amp; Eid Content Pack</h2>
+    <div class="offer" style="margin-top:2.5rem">
+      <div>
+        <ul class="offer__list">
+          <li>One hero shoot day in Cape Town, real models, a Cape Town location</li>
+          <li>30 finished images — 20 photographed, plus 10 AI-extended variations</li>
+          <li>10 vertical videos for Snapchat, TikTok and Instagram</li>
+          <li>Delivered in about three weeks</li>
+          <li>A live video link on shoot day, so you direct every frame from Riyadh</li>
+          <li>Usage: social, website and e-commerce, worldwide, for 24 months</li>
+          <li>You courier your products to Cape Town and pay shipping both ways</li>
+        </ul>
+      </div>
+      <aside class="offer__price">
+        <span class="amount" id="offer-price">Launch rate</span>
+        <p class="note">Launch rate for our first-season clients. Ask for a quote.</p>
+        <p class="note" style="margin-top:1rem">Priced in USD. 50% deposit to book.</p>
+        <a class="btn btn--primary" href="#packs" style="margin-top:1.25rem;width:100%">See the packs</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 3b ─ PACKS -->
+<section class="section" id="packs">
+  <div class="wrap">
+    <span class="eyebrow">Packs</span>
+    <h2>Pick a pack.</h2>
+
+    <div class="grid grid--3" style="margin-top:2.5rem">
+      <article class="pack">
+        <h3>Starter</h3>
+        <p>Small brand, up to about 10 products, one model, half a day.</p>
+        <span class="pack__price" data-pack-price="starter">Price on request</span>
+        <a class="btn btn--ghost" href="#enquiry-section">Ask for a quote</a>
+      </article>
+      <article class="pack pack--featured">
+        <span class="pack__flag">Most popular</span>
+        <h3>Ramadan &amp; Eid</h3>
+        <p>One hero shoot day, 30 finished images, 10 vertical videos, delivered in about three weeks.</p>
+        <span class="pack__price" data-pack-price="ramadanEid">Price on request</span>
+        <p class="pack__note" data-pack-note="ramadanEid"></p>
+        <a class="btn btn--primary" href="#enquiry-section">Book a date</a>
+      </article>
+      <article class="pack">
+        <h3>Season partner</h3>
+        <p>Two to three shoot days across the season, for brands that need content every month.</p>
+        <span class="pack__price">&nbsp;</span>
+        <a class="btn btn--ghost" href="#enquiry-section">Talk to us</a>
+      </article>
+    </div>
+
+    <h3 style="margin-top:3.5rem">Add-ons</h3>
+    <ul class="addons" style="margin-top:1.25rem">
+      <li><strong>Extra shoot day</strong> — a second day, same products, a new location and new looks. Booked straight after day one, so shipping is shared. <span data-addon-price="extraDay">Price on request</span></li>
+      <li><strong>10 extra vertical videos</strong> — ten more 9:16 edits from the same shoot. <span data-addon-price="extraVideos10">Price on request</span></li>
+      <li><strong>Arabic captions and copy</strong> — 30 post captions plus on-screen text and hooks for the videos, written in Gulf Arabic. <span data-addon-price="arabic">Price on request</span></li>
+      <li><strong>Paid advertising licence</strong> — ads, print and outdoor, 12 months. <span>On request</span></li>
+    </ul>
+
+    <p class="summary__fine" style="margin-top:2rem">Priced in USD. 50% deposit to reserve your shoot date, 50% on delivery. Saudi clients: prices exclude any withholding tax or VAT that applies on your side. You courier your products to Cape Town and cover shipping, duties and import taxes both ways.</p>
+  </div>
+</section>
+
+<!-- 4 ─ HOW IT WORKS -->
+<section class="section section--ink" id="how">
+  <div class="wrap">
+    <span class="eyebrow">How it works</span>
+    <h2>Four steps.</h2>
+    <div class="steps" style="margin-top:2rem;max-width:760px">
+      <div class="step"><div><h3>Tell us what you sell and when you need it</h3><p>A short message is enough to start. We come back with a quote within 48 hours.</p></div></div>
+      <div class="step"><div><h3>Send your products to Cape Town</h3><p>Once the quote is confirmed we send you the shipping address and a reference number.</p></div></div>
+      <div class="step"><div><h3>We shoot. You approve online</h3><p>Shot list agreed before the day. You see first selects online and can watch the shoot live if you have added that.</p></div></div>
+      <div class="step"><div><h3>You receive photos and videos, ready to post</h3><p>Delivered in the formats your channels need, with your products couriered back or held for the next shoot.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATS -->
+<section class="section" id="formats">
+  <div class="wrap">
+    <span class="eyebrow">Ready for your channels</span>
+    <h2>Delivered in the sizes you actually post.</h2>
+    <div class="chips" style="margin-top:1.75rem">
+      <span class="chip">Vertical 9:16 for Snapchat and TikTok</span>
+      <span class="chip">Instagram feed</span>
+      <span class="chip">Instagram Stories</span>
+      <span class="chip">Product images sized for Salla</span>
+      <span class="chip">Product images sized for Zid</span>
+      <span class="chip">Product images sized for Noon</span>
+      <span class="chip">Website banners</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5 ─ LOCATIONS -->
+<section class="section section--sand" id="locations">
+  <div class="wrap">
+    <span class="eyebrow">Locations</span>
+    <h2>Cape Town light, familiar enough to feel like home.</h2>
+    <div class="grid grid--3" style="margin-top:2.5rem">
+      <article class="loc"><img class="loc__img" src="/assets/loc-dunes.webp" width="800" height="1200" loading="lazy" decoding="async" alt="A curved dune crest in low afternoon light, ripple texture across the sand."><div class="loc__body"><h3>Atlantis Dunes</h3><p>Cape Town&#39;s closest look to a desert. Permit and 4x4 transport required.</p><span class="ph-label">AI reference image, not our photography</span></div></article>
+      <article class="loc"><div class="ph">Placeholder — Ocean</div><div class="loc__body"><h3>Ocean</h3><p>Atlantic coastline, cold light, long horizons.</p><span class="ph-label">Placeholder image</span></div></article>
+      <article class="loc"><div class="ph">Placeholder — Mountain</div><div class="loc__body"><h3>Mountain</h3><p>Table Mountain and the passes behind it.</p><span class="ph-label">Placeholder image</span></div></article>
+      <article class="loc"><div class="ph">Placeholder — Garden</div><div class="loc__body"><h3>Garden</h3><p>Green, private, shaded. Calm for closed sets.</p><span class="ph-label">Placeholder image</span></div></article>
+    </div>
+    <p class="fine" style="margin-top:1.5rem">The images above are AI-generated references showing the locations, each one labelled. They are not our photographs and not anyone else&rsquo;s work. We replace them with our own frames after the first shoot.</p>
+  </div>
+</section>
+
+<!-- SEASON CALENDAR -->
+<section class="section" id="season">
+  <div class="wrap">
+    <span class="eyebrow">Timing</span>
+    <h2>Cape Town's season is exactly when you need the content.</h2>
+    <div class="timeline" style="margin-top:2rem;max-width:760px">
+      <div class="tl-row"><span>Oct – Mar</span><div class="tl-bar">Cape Town shoot season</div></div>
+      <div class="tl-row"><span>Now – Jan</span><div class="tl-bar tl-bar--ink">Shoot window for Ramadan content</div></div>
+      <div class="tl-row"><span>Feb 2027</span><div class="tl-bar tl-bar--alt">Ramadan begins (about 8 February)</div></div>
+      <div class="tl-row"><span>Mar 2027</span><div class="tl-bar tl-bar--alt">Eid al-Fitr</div></div>
+      <div class="tl-row"><span>Year round</span><div class="tl-bar tl-bar--alt">Wedding and occasion season</div></div>
+    </div>
+    <p class="fine" style="margin-top:1.25rem">Ramadan 2027 starts around 8 February, so Ramadan content needs to be shot by January.</p>
+  </div>
+</section>
+
+<!-- SHIPPING -->
+<section class="section section--sand" id="shipping">
+  <div class="wrap">
+    <span class="eyebrow">Sending your products</span>
+    <h2>How your products get to us, and back.</h2>
+    <div class="grid grid--2" style="margin-top:2.5rem">
+      <div>
+        <div class="steps">
+          <div class="step"><div><h3>Don't ship until we've confirmed your quote</h3><p>Nothing should leave your warehouse before the quote is agreed in writing.</p></div></div>
+          <div class="step"><div><h3>We send the address and a reference number</h3><p>Both come with your confirmed quote. We do not publish our shipping address.</p></div></div>
+          <div class="step"><div><h3>Pack it properly</h3><p>Product list inside the box, sizes marked, steamed or folded flat, and an extra sample for anything fragile.</p></div></div>
+          <div class="step"><div><h3>Getting them back</h3><p>Couriered back to you, or we hold them for your next shoot. Ask us about storage if you are planning a season.</p></div></div>
+        </div>
+      </div>
+      <aside class="card">
+        <h3>Customs</h3>
+        <p>Ship as temporary samples for a photo shoot. You pay duties and shipping in both directions.</p>
+        <p style="margin-top:.8rem"><strong>[CONFIRM: exact customs wording to be agreed with a courier before launch.]</strong></p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- APPROVALS -->
+<section class="section" id="approvals">
+  <div class="wrap">
+    <span class="eyebrow">Approvals</span>
+    <h2>You sign off before anything is final.</h2>
+    <div class="grid grid--2" style="margin-top:2rem">
+      <ul class="offer__list">
+        <li>Shot list agreed with you before the shoot day</li>
+        <li>A live video link so you can watch the shoot as it happens</li>
+        <li>First selects shared online for your picks</li>
+        <li>[CONFIRM: number] rounds of edits included</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 6 ─ WHY LUTU -->
+<section class="section section--ink" id="why">
+  <div class="wrap">
+    <span class="eyebrow">Why LUTU</span>
+    <h2>Arabia meets Africa.</h2>
+    <div class="grid grid--3" style="margin-top:2.5rem">
+      <div class="card" style="background:transparent;border-color:rgba(250,247,242,.16)"><h3>Real models</h3><p style="color:#E8DFD1">Hero images are shot with real models on real locations. AI is used to extend the catalogue, never to invent the hero shot.</p></div>
+      <div class="card" style="background:transparent;border-color:rgba(250,247,242,.16)"><h3>Modest styling done right</h3><p style="color:#E8DFD1">Hijab or non-hijab. You set the modesty level. Calm, private locations and a closed set when you need one.</p></div>
+      <div class="card" style="background:transparent;border-color:rgba(250,247,242,.16)"><h3>A Saudi partner</h3><p style="color:#E8DFD1">Turki handles Gulf clients in Arabic, in your time zone.</p></div>
+      <div class="card" style="background:transparent;border-color:rgba(250,247,242,.16)"><h3>Paid in US dollars</h3><p style="color:#E8DFD1">Quoted and invoiced in USD. 50% deposit to book.</p></div>
+      <div class="card" style="background:transparent;border-color:rgba(250,247,242,.16)"><h3>Cape Town light</h3><p style="color:#E8DFD1">Dunes, ocean, mountain and garden inside an hour of each other. Familiar to a Gulf audience, but not what they have seen before.</p></div>
+      <div class="card" style="background:transparent;border-color:rgba(250,247,242,.16)"><h3>Season timing</h3><p style="color:#E8DFD1">Our season runs late October to March — exactly when Ramadan and Eid content has to be made.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section" id="proof">
+  <div class="wrap">
+    <div class="grid grid--2">
+      <div class="card"><p>Founded by an international model with ten years of shoots across Milan, Shanghai, Hong Kong, Mumbai, Istanbul, Bali and Cape Town.</p></div>
+      <div class="card"><p>Saudi co-founder, Arabic-speaking, handling Gulf clients directly.</p></div>
+    </div>
+    <p class="fine" style="margin-top:1.5rem">This is our first season. Early clients get a launch rate.</p>
+    <!-- OUR WORK — hidden until real client images exist. Switch caseStudies.enabled to true in /config/site.json. -->
+  </div>
+</section>
+
+<!-- BIGGER PROJECT -->
+<section class="section section--sand" id="production">
+  <div class="wrap">
+    <div class="grid grid--2" style="align-items:center">
+      <div>
+        <span class="eyebrow">Also available</span>
+        <h2>Got a bigger project?</h2>
+        <p class="lede" style="margin-top:1rem">If you would rather fly in and shoot in South Africa yourself, we can put the ground operation together: crew, locations, permits, Muslim-friendly logistics and an Arabic-speaking contact for the duration.</p>
+      </div>
+      <div><a class="btn btn--ghost" href="#enquiry-section" data-preselect="production">Ask about production help</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 ─ FOUNDERS -->
+<section class="section" id="founders">
+  <div class="wrap">
+    <span class="eyebrow">Founders</span>
+    <h2>Two people, two sides of the same shoot.</h2>
+    <div class="grid grid--2" style="margin-top:2.5rem">
+      <article class="founder">
+        <h3>Luca</h3><span class="role">Cape Town · Production and direction</span>
+        <p>South African and Italian. Ten years as a working international fashion model across Cape Town, Milan, Shanghai, Hong Kong, Bali, Mumbai and Istanbul, which means he has spent a decade on the other side of the camera watching what makes a shoot work and what wastes a day. He also founded <a href="https://lucabold.com" rel="noopener">Booked</a>. He runs the Cape Town end: casting, crew, locations and delivery. <a href="https://lucabold.com" rel="noopener">See his modelling work</a>.</p>
+      </article>
+      <article class="founder">
+        <h3>Turki</h3><span class="role">Saudi Arabia · Clients and social</span>
+        <p>Based in Saudi Arabia. He handles Saudi and Gulf clients in Arabic and in your time zone, from first message through to sign-off, and runs LUTU's own social channels. If you would rather do the whole thing in Arabic, you will be talking to him.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section--sand" id="faq">
+  <div class="wrap">
+    <span class="eyebrow">Questions</span>
+    <h2>The things brands ask first.</h2>
+    <div style="margin-top:2rem;max-width:800px">
+      <details><summary>How long does it take?</summary><p>About three weeks from the shoot day for a standard delivery, or about ten days if you add rush. We confirm your window in writing before you pay a deposit, and we tell you straight away if anything puts it at risk.</p></details>
+      <details><summary>What if my products get held at customs?</summary><p>It happens, and it is the main reason we ask you not to ship before the quote is confirmed. Ship as temporary samples for a photo shoot. Duties and shipping in both directions are yours. If a shipment is delayed we move your shoot day rather than shoot without the products. [CONFIRM: exact customs wording with a courier.]</p></details>
+      <details><summary>Can you do hijab styling?</summary><p>Yes. You set the modesty level — hijab, non-hijab, no faces, or hands only — and we cast and style to it. A modest styling specialist can be arranged, and we can run a closed set on a private location.</p></details>
+      <details><summary>Will the models be suitable for my brand?</summary><p>You approve casting before the shoot day. Tell us the look you need and we send options. Nothing is shot with a model you have not agreed to.</p></details>
+      <details><summary>Do you use AI, and how much?</summary><p>Hero images are photographs of real models on real locations. AI is used to extend those into catalogue variations when you need volume — more angles, more colourways, more crops — and a person checks every single AI image before it reaches you. We will tell you which images in your delivery are which. We do not generate a model who was never there and present her as a photograph.</p></details>
+      <details><summary>Who owns the content?</summary><p>You own the right to use the delivered files for the usage and period you selected. LUTU keeps the underlying files and the right to show the work in our own portfolio unless you ask us not to. Models have their own usage limits. The <a href="/licence/">content licence summary</a> sets out exactly what each option allows.</p></details>
+      <details><summary>How do I pay, and in what currency?</summary><p>US dollars. 50% deposit to book your date, the balance before delivery. No payment is taken on this website today — we invoice you directly.</p></details>
+      <details><summary>Do Saudi taxes apply?</summary><p>Our prices exclude any withholding tax or VAT that applies on your side. LUTU is a South African company invoicing from South Africa; how that is treated in your jurisdiction depends on your own tax position, so check with your accountant.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 8 ─ ENQUIRY -->
+<section class="section section--ink" id="enquiry-section">
+  <div class="wrap">
+    <span class="eyebrow">Get a quote</span>
+    <h2>Tell us what you sell and when you need it.</h2>
+    <p class="lede" style="margin-top:1.25rem;max-width:620px">Message us in Arabic or English. Tell us what you sell, roughly how many products, and when you need the content. We come back with a quote within 48 hours.</p>
+
+    <div class="contact-actions" style="margin-top:2.5rem">
+      <a class="btn btn--primary" data-where="enquiry" href="https://wa.me/27824617739?text=Hi%20LUTU%2C%20I%27d%20like%20a%20quote%20for%20a%20shoot">WhatsApp us</a>
+      <a class="btn btn--ghost" style="color:#FAF7F2;border-color:#FAF7F2" href="mailto:hello@lutu.co.za?subject=Quote%20request">Email hello@lutu.co.za</a>
+    </div>
+
+    <p class="fine" style="margin-top:2rem;max-width:620px">No form, no calendar, no account to create. A person reads every message. Please don't ship anything until a quote is confirmed.</p>
+  </div>
+</section>
+
 </main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>LUTU</h4>
+        <p>LUTU Creative (Pty) Ltd<br>Cape Town, South Africa<br>Registration number 2026/936736/07</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@lutu.co.za">hello@lutu.co.za</a></li>
+          <li><a href="https://wa.me/27824617739" data-where="footer">WhatsApp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://instagram.com/lutucreative" rel="noopener">Instagram @lutucreative</a></li>
+          <li><a href="https://tiktok.com/@lutucreative" rel="noopener">TikTok @lutucreative</a></li>
+          <li><a href="https://snapchat.com/add/lutucreative" rel="noopener">Snapchat @lutucreative</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy/">Privacy policy</a></li>
+          <li><a href="/terms/">Terms of service</a></li>
+          <li><a href="/licence/">Content licence summary</a></li>
+          <li><a href="/ar/" hreflang="ar" lang="ar">العربية</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-legal">
+      Social handles [CONFIRM: @lutucreative claimed on each platform]. Prices are quoted in US dollars and exclude any withholding tax or VAT applying in the client's country.
+      LUTU is a content and production service. We do not sell garments.
+    </p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://lutu.co.za/#org",
+      "name": "LUTU",
+      "legalName": "LUTU Creative (Pty) Ltd",
+      "identifier": { "@type": "PropertyValue", "name": "CIPC registration number", "value": "2026/936736/07" },
+      "url": "https://lutu.co.za/",
+      "email": "hello@lutu.co.za",
+      "foundingDate": "2026-11",
+      "address": { "@type": "PostalAddress", "addressLocality": "Cape Town", "addressCountry": "ZA" },
+      "sameAs": [
+        "https://instagram.com/lutucreative",
+        "https://tiktok.com/@lutucreative",
+        "https://snapchat.com/add/lutucreative"
+      ],
+      "founder": [
+        { "@type": "Person", "name": "Luca", "url": "https://lucabold.com" },
+        { "@type": "Person", "name": "Turki" }
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://lutu.co.za/#service",
+      "name": "LUTU — Cape Town content studio",
+      "description": "Remote product shoots in Cape Town for Saudi and Gulf fashion, fragrance and beauty brands. Brands courier products to Cape Town; LUTU shoots with real models on Cape Town locations and delivers finished images and vertical video.",
+      "url": "https://lutu.co.za/",
+      "parentOrganization": { "@id": "https://lutu.co.za/#org" },
+      "areaServed": [
+        { "@type": "Country", "name": "Saudi Arabia" },
+        { "@type": "Country", "name": "United Arab Emirates" },
+        { "@type": "Country", "name": "Kuwait" },
+        { "@type": "Country", "name": "Qatar" },
+        { "@type": "Country", "name": "Bahrain" },
+        { "@type": "Country", "name": "Oman" },
+        { "@type": "Country", "name": "South Africa" }
+      ],
+      "address": { "@type": "PostalAddress", "addressLocality": "Cape Town", "addressCountry": "ZA" },
+      "availableLanguage": ["en", "ar"],
+      "makesOffer": {
+        "@type": "Offer",
+        "name": "Ramadan & Eid Content Pack",
+        "description": "One hero shoot day in Cape Town with real models, 30 finished images, 10 vertical videos, delivered in about three weeks. Priced in USD with a 50% deposit to book.",
+        "priceCurrency": "USD",
+        "price": "6500",
+        "availability": "https://schema.org/InStock",
+        "areaServed": "Saudi Arabia"
+      }
+    }
+  ]
+}
+</script>
+
+<script src="/js/quote.js" defer></script>
 </body>
 </html>
