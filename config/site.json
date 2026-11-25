@@ -1,0 +1,46 @@
+{
+  "_README": "Contact details and switches. Change them here and they change everywhere on both language versions.",
+  "company": {
+    "legalName": "LUTU Creative (Pty) Ltd",
+    "registrationNumber": "2026/936736/07",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "_registered": "Registered November 2026."
+  },
+  "contact": {
+    "email": "hello@lutu.co.za",
+    "_email": "Live on Google Workspace since 24 November 2026 (alias on luca@bookednow.co.za, DKIM on). Change the address here only — every page reads it from this file.",
+    "whatsappNumber": "27824617739",
+    "_whatsappNumber": "CONFIRM this is the right number for LUTU. Digits only, international format, no + or spaces.",
+    "whatsappPrefill": "Hi LUTU, I'd like a quote for a shoot",
+    "whatsappPrefillAr": "مرحباً لوتو، أود الحصول على عرض سعر لجلسة تصوير"
+  },
+  "social": {
+    "_note": "No handles claimed as at 25 November 2026, so the footer Follow block and the JSON-LD sameAs were removed from both language versions. Claim @lutucreative, fill these in, then put both back.",
+    "instagram": "",
+    "tiktok": "",
+    "snapchat": ""
+  },
+  "domain": {
+    "canonical": "https://lutu.co.za",
+    "_canonical": "Registered and serving over HTTPS since 25 November 2026. Used for canonical URLs, hreflang, sitemap and Open Graph."
+  },
+  "analytics": {
+    "provider": "plausible",
+    "domain": "lutu.co.za",
+    "enabled": false,
+    "_enabled": "Set true once the domain is live and the Plausible site is created. No cookie banner needed either way."
+  },
+  "seasonBanner": {
+    "enabled": true,
+    "bookByDate": "15 January 2027",
+    "bookByDateAr": "١٥ يناير ٢٠٢٧",
+    "_bookByDate": "The one booking deadline on the site. It fills the season banner AND the launch-rate note in pricing.json, so the two can never disagree. Change it here only, in both languages. Set enabled:false to hide the banner — the launch note then falls back to the plain date. The banner does not name Ramadan: at this deadline, shipping plus a three-week delivery lands assets after Ramadan 1448 begins (about 8 February 2027). If the deadline moves back into early December, Ramadan can go back into textEn and textAr.",
+    "textEn": " Book by {date} to shoot this season.",
+    "textAr": " احجز قبل {date} للتصوير ضمن هذا الموسم."
+  },
+  "caseStudies": {
+    "enabled": false,
+    "_enabled": "Stays false until real client work exists. When true, the 'Our work' section appears."
+  }
+}

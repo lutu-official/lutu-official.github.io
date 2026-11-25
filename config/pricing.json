@@ -1,0 +1,311 @@
+{
+  "_README": "EVERY price on the site comes from this file. Nothing is hard-coded anywhere else. Set `price` values in whole USD. While a price is 0 the site shows 'Price on request' instead of $0, and the quote builder refuses to show a total.",
+  "currency": "USD",
+  "currencySymbol": "$",
+  "depositPercent": 50,
+  "_depositPercent": "Percentage of the total taken as a booking deposit. Shown under every total.",
+  "minimumOrder": 3200,
+  "_minimumOrder": "If a built quote totals less than this, the site shows the minimum instead. Set to the Starter price so nothing is quoted below the cheapest pack.",
+  "launchDiscount": {
+    "enabled": true,
+    "percent": 15.3846,
+    "forFirstBrandsText": "Launch rate for our first 3 brands, booking by {date}.",
+    "_note": "When enabled, the normal price is struck through and the discounted price shown beside it. Set `percent` to e.g. 20 for 20% off. `forFirstBrandsText` takes a {date} token, filled from seasonBanner.bookByDate in site.json so the launch deadline and the Ramadan booking deadline stay the same date. Put the brand count in the text once decided.",
+    "forFirstBrandsTextAr": "سعر الإطلاق لأول ٣ علامات تحجز قبل {date}.",
+    "appliesTo": [
+      "ramadanEid"
+    ],
+    "_appliesTo": "Pack keys the launch discount applies to. Empty or missing = all priced packs."
+  },
+  "packs": {
+    "starter": {
+      "label": "Starter",
+      "blurb": "Small brand, one model, half a day.",
+      "price": 3200,
+      "_price": "Flat price for the Starter pack. Half shoot day, up to ~10 products, 1 model. Derived from a half-day at ~60% of a full day; keeps R39,936 after 15% withholding and 10% commission. Revisit when First Productions quotes a half-day.",
+      "preset": {
+        "products": "upto10",
+        "models": "1",
+        "styling": "standard",
+        "location": "standard",
+        "days": "1",
+        "extraImages": 0,
+        "extraVideos": 0,
+        "bts": false,
+        "arabic": false,
+        "usage": "organic",
+        "usagePeriod": "6m",
+        "delivery": "standard",
+        "liveView": false
+      }
+    },
+    "ramadanEid": {
+      "label": "Ramadan & Eid Content Pack",
+      "blurb": "1 hero shoot day, 30 finished images, 10 vertical videos. Delivered in about 3 weeks.",
+      "price": 6500,
+      "_price": "Flat price for the Ramadan & Eid pack. This is the headline offer.",
+      "mostPopular": true,
+      "preset": {
+        "products": "11to20",
+        "models": "1",
+        "styling": "modest",
+        "location": "standard",
+        "days": "1",
+        "extraImages": 0,
+        "extraVideos": 0,
+        "bts": false,
+        "arabic": true,
+        "usage": "organic",
+        "usagePeriod": "1y",
+        "delivery": "standard",
+        "liveView": false
+      }
+    },
+    "seasonPartner": {
+      "label": "Season partner",
+      "blurb": "2–3 shoot days across the season, for brands that need content every month.",
+      "price": null,
+      "_price": "null means no price is shown and the button reads 'Talk to us' instead of loading the builder.",
+      "enquireOnly": true
+    }
+  },
+  "base": {
+    "price": 0,
+    "_price": "Base price the quote builder starts from before any options are added. Equivalent to the Ramadan & Eid pack baseline: 1 shoot day, 1 model, standard location, 30 images, 10 videos."
+  },
+  "options": {
+    "products": {
+      "label": "Products or looks",
+      "choices": [
+        {
+          "id": "upto10",
+          "label": "Up to 10",
+          "price": 0,
+          "_price": "Added to base."
+        },
+        {
+          "id": "11to20",
+          "label": "11–20",
+          "price": 0,
+          "_price": "Added to base."
+        },
+        {
+          "id": "21to40",
+          "label": "21–40",
+          "price": 0,
+          "_price": "Added to base."
+        }
+      ]
+    },
+    "models": {
+      "label": "Models",
+      "choices": [
+        {
+          "id": "1",
+          "label": "1 model",
+          "price": 0,
+          "_price": "Added to base. Model fee for one model for the shoot day."
+        },
+        {
+          "id": "2",
+          "label": "2 models",
+          "price": 0,
+          "_price": "Added to base."
+        },
+        {
+          "id": "3plus",
+          "label": "3 or more",
+          "price": 0,
+          "_price": "Added to base. Final count confirmed in the quote."
+        }
+      ]
+    },
+    "styling": {
+      "label": "Styling",
+      "choices": [
+        {
+          "id": "standard",
+          "label": "Standard styling",
+          "price": 0,
+          "_price": "Added to base."
+        },
+        {
+          "id": "modest",
+          "label": "Modest styling specialist (hijab styling included)",
+          "price": 0,
+          "_price": "Added to base."
+        }
+      ]
+    },
+    "modesty": {
+      "label": "Model look and modesty level",
+      "_note": "Does not change the price by default — set prices here if a particular treatment costs more to cast or shoot.",
+      "choices": [
+        {
+          "id": "hijab",
+          "label": "Hijab",
+          "price": 0,
+          "_price": "Added to base."
+        },
+        {
+          "id": "nonhijab",
+          "label": "Non-hijab",
+          "price": 0,
+          "_price": "Added to base."
+        },
+        {
+          "id": "nofaces",
+          "label": "No faces",
+          "price": 0,
+          "_price": "Added to base."
+        },
+        {
+          "id": "handsonly",
+          "label": "Hands only",
+          "price": 0,
+          "_price": "Added to base."
+        }
+      ]
+    },
+    "location": {
+      "label": "Location",
+      "choices": [
+        {
+          "id": "standard",
+          "label": "Standard Cape Town location",
+          "price": 0,
+          "_price": "Added to base."
+        },
+        {
+          "id": "premium",
+          "label": "Premium location (e.g. Atlantis Dunes — permit and transport)",
+          "price": 0,
+          "_price": "Added to base. Should cover the permit fee and 4x4 transport."
+        }
+      ]
+    },
+    "days": {
+      "label": "Shoot days",
+      "choices": [
+        {
+          "id": "1",
+          "label": "1 day",
+          "price": 0,
+          "_price": "Added to base."
+        },
+        {
+          "id": "2",
+          "label": "2 days",
+          "price": 3500,
+          "_price": "Added to base."
+        },
+        {
+          "id": "3",
+          "label": "3 days",
+          "price": 0,
+          "_price": "Added to base."
+        }
+      ]
+    },
+    "usage": {
+      "label": "Usage",
+      "choices": [
+        {
+          "id": "organic",
+          "label": "Organic social only",
+          "price": 0,
+          "_price": "Added to base."
+        },
+        {
+          "id": "paid",
+          "label": "Paid ads",
+          "price": 1500,
+          "_price": "Added to base. Paid media usage costs more."
+        },
+        {
+          "id": "marketplace",
+          "label": "Website and marketplaces",
+          "price": 0,
+          "_price": "Added to base. Covers Salla, Zid, Noon and the brand's own site."
+        }
+      ]
+    },
+    "usagePeriod": {
+      "label": "Usage period",
+      "choices": [
+        {
+          "id": "6m",
+          "label": "6 months",
+          "price": 0,
+          "_price": "Added to base."
+        },
+        {
+          "id": "1y",
+          "label": "1 year",
+          "price": 0,
+          "_price": "Added to base."
+        },
+        {
+          "id": "unlimited",
+          "label": "Unlimited",
+          "price": 0,
+          "_price": "Added to base."
+        }
+      ]
+    },
+    "delivery": {
+      "label": "Delivery",
+      "choices": [
+        {
+          "id": "standard",
+          "label": "Standard — about 3 weeks",
+          "price": 0,
+          "_price": "Added to base."
+        },
+        {
+          "id": "rush",
+          "label": "Rush — about 10 days",
+          "price": 0,
+          "_price": "Added to base. Rush fee."
+        }
+      ]
+    }
+  },
+  "addons": {
+    "extraImages": {
+      "label": "Extra images",
+      "blockSize": 10,
+      "pricePerBlock": 0,
+      "_pricePerBlock": "Price per block of 10 extra finished images.",
+      "maxBlocks": 10
+    },
+    "extraVideos": {
+      "label": "Extra vertical videos",
+      "blockSize": 5,
+      "pricePerBlock": 600,
+      "_pricePerBlock": "Price per block of 5 extra vertical videos.",
+      "maxBlocks": 10
+    },
+    "bts": {
+      "label": "Behind-the-scenes video",
+      "price": 0,
+      "_price": "Flat add-on."
+    },
+    "arabic": {
+      "label": "Arabic captions and localised cut-downs",
+      "price": 800,
+      "_price": "Flat add-on."
+    },
+    "liveView": {
+      "label": "Watch the shoot live (video link)",
+      "price": 0,
+      "_price": "Flat add-on. Client joins a live video link during the shoot day."
+    }
+  },
+  "included": {
+    "images": 30,
+    "videos": 10,
+    "editRounds": 2,
+    "_editRounds": "Two rounds, set 25 November 2026. A round means adjusting agreed work in the shot list, not re-shooting to a new brief. Stated in /terms/ clause 7 and on the Approvals section \u2014 change all three together."
+  }
+}

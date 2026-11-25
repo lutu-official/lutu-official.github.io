@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://lutu.co.za/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lutu.co.za/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://lutu.co.za/ar/"/>
+    <lastmod>2026-11-21</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://lutu.co.za/ar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lutu.co.za/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://lutu.co.za/ar/"/>
+    <lastmod>2026-11-21</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://lutu.co.za/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lutu.co.za/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://lutu.co.za/ar/privacy/"/>
+    <lastmod>2026-11-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lutu.co.za/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lutu.co.za/terms/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://lutu.co.za/ar/terms/"/>
+    <lastmod>2026-11-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lutu.co.za/licence/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lutu.co.za/licence/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://lutu.co.za/ar/licence/"/>
+    <lastmod>2026-11-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lutu.co.za/ar/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lutu.co.za/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://lutu.co.za/ar/privacy/"/>
+    <lastmod>2026-11-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lutu.co.za/ar/terms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lutu.co.za/terms/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://lutu.co.za/ar/terms/"/>
+    <lastmod>2026-11-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lutu.co.za/ar/licence/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lutu.co.za/licence/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://lutu.co.za/ar/licence/"/>
+    <lastmod>2026-11-21</lastmod>
+    <priority>0.3</priority>
+  </url>
+</urlset>
