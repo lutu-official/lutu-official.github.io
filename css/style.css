@@ -94,6 +94,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .hero{position:relative;min-height:clamp(520px,82svh,760px);display:flex;align-items:flex-end;background:var(--sand-deep)}
 .hero__media{position:absolute;inset:0;overflow:hidden}
 .hero__media img{width:100%;height:100%;object-fit:cover}
+/* scrim: keeps white hero type legible over a pale photograph */
+.hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(26,24,22,.35) 0%,rgba(26,24,22,.55) 45%,rgba(26,24,22,.8) 100%)}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,24,22,.88) 0%,rgba(26,24,22,.45) 45%,rgba(26,24,22,.2) 100%)}
 .hero__inner{position:relative;z-index:1;color:var(--offwhite);padding-block:clamp(2.5rem,6vw,4.5rem);width:100%}
 .hero h1{color:var(--offwhite);max-width:18ch;margin-bottom:1.25rem}
@@ -161,7 +163,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 /* ---------- locations ---------- */
 .loc{position:relative;overflow:hidden;background:var(--sand-deep)}
-.loc img,.loc .ph{aspect-ratio:4/5;width:100%;object-fit:cover;display:block}
+.loc img,.loc .ph{aspect-ratio:4/5;width:100%;height:auto;object-fit:cover;display:block}
 .ph{display:grid;place-items:center;background:repeating-linear-gradient(45deg,var(--sand) 0 12px,var(--sand-deep) 12px 24px);color:var(--ink-soft);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:1rem}
 [dir="rtl"] .ph{letter-spacing:0;font-size:.85rem}
 .loc__body{padding:1rem 0}
