@@ -67,12 +67,14 @@ read as one body of work. Downsized to 800×1200 WebP for the site.
 
 ### Mountain
 
-> A portrait-format photograph of a steep mountain pass in the Western Cape,
-> South Africa — layered sandstone cliffs and dry scrub slopes receding into
-> soft haze, late afternoon side light raking across the rock faces.
-> Completely empty: no people, no vehicles, no road markings, no buildings, no
-> signage. Muted palette of warm stone, dust, sage green and pale grey,
-> slightly desaturated. Quiet and vast rather than dramatic. Editorial
+> A portrait-format photograph of Table Mountain, Cape Town, seen from a
+> distance across empty ground — its long flat summit plateau and steep
+> buttressed cliff face filling the upper half of the frame, with dry scrub
+> slopes and layered ridges receding into soft haze below. Late afternoon side
+> light raking across the rock face, the plateau clean against a pale sky.
+> Completely empty: no people, no vehicles, no buildings, no cable car, no
+> roads, no signage. Muted palette of warm stone, dust, sage green and pale
+> grey, slightly desaturated. Quiet and vast rather than dramatic. Editorial
 > location reference, shot on medium format film, fine natural grain, matte
 > finish.
 
@@ -136,8 +138,8 @@ Mirrored so the composition suits a right-to-left layout.
 ## When a new file comes back
 
 - Export as **WebP, quality ~80**, and keep every image **under 150 KB** —
-  fonts are already 256 KB of the page weight. The mountain card needed
-  quality 70 to get there.
+  fonts are already 256 KB of the page weight. The mountain card is encoded
+  at quality 72 to stay inside it.
 - Put it in `/assets/`, keep the full-resolution PNG as `assets/_src-<name>.png`.
 - Location cards are 800×1200 and need `width`, `height` and `loading="lazy"`,
   or the grid shifts as they load.
