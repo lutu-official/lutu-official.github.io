@@ -35,9 +35,9 @@
     "enabled": true,
     "bookByDate": "15 January 2027",
     "bookByDateAr": "١٥ يناير ٢٠٢٧",
-    "_bookByDate": "The one booking deadline on the site. It fills the season banner AND the launch-rate note in pricing.json, so the two can never disagree. Change it here only, in both languages. Set enabled:false to hide the banner — the launch note then falls back to the plain date.",
-    "textEn": " Book by {date} for Ramadan content.",
-    "textAr": " احجز قبل {date} لمحتوى رمضان."
+    "_bookByDate": "The one booking deadline on the site. It fills the season banner AND the launch-rate note in pricing.json, so the two can never disagree. Change it here only, in both languages. Set enabled:false to hide the banner — the launch note then falls back to the plain date. The banner does not name Ramadan: at this deadline, shipping plus a three-week delivery lands assets after Ramadan 1448 begins (about 8 February 2027). If the deadline moves back into early December, Ramadan can go back into textEn and textAr.",
+    "textEn": " Book by {date} to shoot this season.",
+    "textAr": " احجز قبل {date} للتصوير ضمن هذا الموسم."
   },
   "caseStudies": {
     "enabled": false,
