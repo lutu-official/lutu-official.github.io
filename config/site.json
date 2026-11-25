@@ -16,14 +16,14 @@
     "whatsappPrefillAr": "مرحباً لوتو، أود الحصول على عرض سعر لجلسة تصوير"
   },
   "social": {
-    "_note": "CONFIRM @lutucreative is claimed on each platform before launch. Leave a handle empty to hide it.",
-    "instagram": "lutucreative",
-    "tiktok": "lutucreative",
-    "snapchat": "lutucreative"
+    "_note": "No handles claimed as at 25 November 2026, so the footer Follow block and the JSON-LD sameAs were removed from both language versions. Claim @lutucreative, fill these in, then put both back.",
+    "instagram": "",
+    "tiktok": "",
+    "snapchat": ""
   },
   "domain": {
     "canonical": "https://lutu.co.za",
-    "_canonical": "CONFIRM lutu.co.za is registered. Used for canonical URLs, hreflang, sitemap and Open Graph."
+    "_canonical": "Registered and serving over HTTPS since 25 November 2026. Used for canonical URLs, hreflang, sitemap and Open Graph."
   },
   "analytics": {
     "provider": "plausible",

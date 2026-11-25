@@ -305,7 +305,7 @@
   "included": {
     "images": 30,
     "videos": 10,
-    "editRounds": null,
-    "_editRounds": "CONFIRM: number of revision rounds included. null renders as a placeholder on the site."
+    "editRounds": 2,
+    "_editRounds": "Two rounds, set 25 November 2026. A round means adjusting agreed work in the shot list, not re-shooting to a new brief. Stated in /terms/ clause 7 and on the Approvals section \u2014 change all three together."
   }
 }

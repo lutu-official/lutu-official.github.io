@@ -126,3 +126,20 @@ builder summary of both language versions showing where a deposit link goes late
   exist yet; `caseStudies.enabled` in `config/site.json` is the switch for when it does.
 - Every placeholder image is visibly labelled as one.
 - No other studio's work is shown or implied as LUTU's.
+
+## Still open before launch
+
+- **Customs wording.** The site now says only what is true without a courier's
+  sign-off: your courier files the declaration, the goods are temporary samples
+  for a photographic shoot being returned afterwards, and the quote reference
+  goes on the paperwork. Get a courier (DHL, Aramex or a Cape Town clearing
+  agent) to confirm the exact declaration wording and the correct ATA Carnet or
+  temporary-import route, then tighten `/terms/` clause 6, the Customs card on
+  the home page and the customs FAQ together, in both languages.
+- **WhatsApp number.** `config/site.json` still carries 27824617739 with a
+  CONFIRM note. Confirm it is the number LUTU should publish, or replace it.
+- **Social handles.** None claimed as at 25 November 2026, so the footer Follow
+  block and the JSON-LD `sameAs` were removed from both language versions.
+  Claim @lutucreative, fill in `config/site.json`, then restore both.
+- **Deposit.** The site asks for 50% to reserve a shoot date. That cannot be
+  banked until the FNB account is open.
