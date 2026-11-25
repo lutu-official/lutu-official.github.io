@@ -34,7 +34,8 @@
   "seasonBanner": {
     "enabled": true,
     "bookByDate": "5 December 2026",
-    "_bookByDate": "Shown as 'Book by <date> for Ramadan content.' Set to a real date, e.g. '15 January 2027'. Set enabled:false to hide the banner entirely.",
+    "bookByDateAr": "٥ ديسمبر ٢٠٢٦",
+    "_bookByDate": "The one booking deadline on the site. It fills the season banner AND the launch-rate note in pricing.json, so the two can never disagree. Change it here only, in both languages. Set enabled:false to hide the banner — the launch note then falls back to the plain date.",
     "textEn": " Book by {date} for Ramadan content.",
     "textAr": " احجز قبل {date} لمحتوى رمضان."
   },

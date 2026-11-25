@@ -13,6 +13,13 @@
     return (P.currencySymbol || '$') + Math.round(n).toLocaleString('en-US');
   }
 
+  /* The one booking deadline, from site.json. Both the banner and the launch
+     note read it, so they cannot drift apart. */
+  function bookBy() {
+    var sb = SITE.seasonBanner || {};
+    return (AR && sb.bookByDateAr) ? sb.bookByDateAr : (sb.bookByDate || '');
+  }
+
   /* ---- pack cards ---- */
   function renderPacks() {
     var ld = P.launchDiscount;
@@ -44,7 +51,7 @@
       var note = (AR && ld && ld.forFirstBrandsTextAr) ? ld.forFirstBrandsTextAr
                : (ld && ld.forFirstBrandsText);
       if (discounts(key) && pack && pack.price && note) {
-        el.textContent = note;
+        el.textContent = note.replace('{date}', bookBy());
       } else {
         el.textContent = '';
       }
@@ -78,9 +85,9 @@
     var sd = document.getElementById('season-date');
     if (!sb || !SITE.seasonBanner) return;
     if (!SITE.seasonBanner.enabled) { sb.hidden = true; return; }
-    if (sd && SITE.seasonBanner.bookByDate) {
+    if (sd && bookBy()) {
       var tpl = AR ? SITE.seasonBanner.textAr : SITE.seasonBanner.textEn;
-      sd.textContent = ' ' + tpl.replace('{date}', SITE.seasonBanner.bookByDate);
+      sd.textContent = ' ' + tpl.replace('{date}', bookBy());
     }
   }
 

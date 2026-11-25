@@ -9,9 +9,9 @@
   "launchDiscount": {
     "enabled": true,
     "percent": 15.3846,
-    "forFirstBrandsText": "Launch rate for our first 3 brands, booking by 15 January 2027.",
-    "_note": "When enabled, the normal price is struck through and the discounted price shown beside it. Set `percent` to e.g. 20 for 20% off. `forFirstBrandsText` is free text — put the brand count in it once decided, e.g. 'Launch rate for our first 5 brands.'",
-    "forFirstBrandsTextAr": "سعر الإطلاق لأول ٣ علامات تحجز قبل ١٥ يناير ٢٠٢٧.",
+    "forFirstBrandsText": "Launch rate for our first 3 brands, booking by {date}.",
+    "_note": "When enabled, the normal price is struck through and the discounted price shown beside it. Set `percent` to e.g. 20 for 20% off. `forFirstBrandsText` takes a {date} token, filled from seasonBanner.bookByDate in site.json so the launch deadline and the Ramadan booking deadline stay the same date. Put the brand count in the text once decided.",
+    "forFirstBrandsTextAr": "سعر الإطلاق لأول ٣ علامات تحجز قبل {date}.",
     "appliesTo": [
       "ramadanEid"
     ],
