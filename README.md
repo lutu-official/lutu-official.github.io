@@ -84,14 +84,33 @@ No cookie banner is needed — the site sets no cookies.
 
 ## Deploy
 
-**Cloudflare Pages** — connect the repo, framework preset "None", build command empty,
-output directory `/`.
+**GitHub Pages.** Push this repo, then Settings -> Pages -> deploy from
+branch `main`, folder `/` (root). No build step, no framework.
 
-**Netlify** — drag the folder into the dashboard, or connect the repo with no build command and
-publish directory `.`.
+`CNAME` in the repo root holds the custom domain (`lutu.co.za`). Do not
+delete it: Pages rewrites it from the Settings field, and losing it drops
+the custom domain.
 
-Then point `lutu.co.za` at it and update `domain.canonical` in `config/site.json` if the final
-domain differs.
+### DNS still has to change
+
+As of 25 November 2026 `lutu.co.za` resolves to `169.239.219.58`, which is
+the registrar's parking IP. For GitHub Pages the apex A records must be:
+
+    185.199.108.153
+    185.199.109.153
+    185.199.110.153
+    185.199.111.153
+
+Leave the existing MX and TXT records alone - they run hello@lutu.co.za on
+Google Workspace and are unrelated to hosting.
+
+### No forms
+
+GitHub Pages serves static files only and cannot process a form. The site
+deliberately has none: enquiries come in by WhatsApp and email. If a form
+is ever needed it requires a third-party service (Formspree or similar),
+and the privacy policy must disclose that processor again.
+
 
 ## Things deliberately not built
 
