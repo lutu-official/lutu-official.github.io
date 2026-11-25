@@ -228,7 +228,6 @@ details p{font-size:.9rem;color:var(--ink-soft);margin-top:.8rem;max-width:68ch}
 .skip:focus{inset-inline-start:0}
 .fine{font-size:.76rem;color:var(--ink-soft);line-height:1.65}
 .section--ink .fine{color:var(--sand-deep)}
-.draft-note{background:#FFF4D6;border:1px solid #E0C56A;padding:.9rem 1.1rem;font-size:.84rem;margin-bottom:2rem}
 .prose{max-width:68ch}
 .prose h2{font-size:1.6rem;margin-top:2.5rem;margin-bottom:.8rem}
 .prose h2:first-of-type{margin-top:0}
