@@ -163,9 +163,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 /* ---------- locations ---------- */
 .loc{position:relative;overflow:hidden;background:var(--sand-deep)}
-.loc img,.loc .ph{aspect-ratio:4/5;width:100%;height:auto;object-fit:cover;display:block}
-.ph{display:grid;place-items:center;background:repeating-linear-gradient(45deg,var(--sand) 0 12px,var(--sand-deep) 12px 24px);color:var(--ink-soft);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:1rem}
-[dir="rtl"] .ph{letter-spacing:0;font-size:.85rem}
+.loc img{aspect-ratio:4/5;width:100%;height:auto;object-fit:cover;display:block}
 .loc__body{padding:1rem 0}
 .loc__body h3{font-size:1.1rem}
 .loc__body p{font-size:.86rem;color:var(--ink-soft)}
