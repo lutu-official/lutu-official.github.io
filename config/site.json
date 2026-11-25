@@ -1,0 +1,45 @@
+{
+  "_README": "Contact details and switches. Change them here and they change everywhere on both language versions.",
+  "company": {
+    "legalName": "LUTU Creative (Pty) Ltd",
+    "registrationNumber": "2026/936736/07",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "_registered": "Registered November 2026."
+  },
+  "contact": {
+    "email": "hello@lutu.co.za",
+    "_email": "Live on Google Workspace since 24 November 2026 (alias on luca@bookednow.co.za, DKIM on). Change the address here only — every page reads it from this file.",
+    "whatsappNumber": "27824617739",
+    "_whatsappNumber": "CONFIRM this is the right number for LUTU. Digits only, international format, no + or spaces.",
+    "whatsappPrefill": "Hi LUTU, I'd like a quote for a shoot",
+    "whatsappPrefillAr": "مرحباً لوتو، أود الحصول على عرض سعر لجلسة تصوير"
+  },
+  "social": {
+    "_note": "CONFIRM @lutucreative is claimed on each platform before launch. Leave a handle empty to hide it.",
+    "instagram": "lutucreative",
+    "tiktok": "lutucreative",
+    "snapchat": "lutucreative"
+  },
+  "domain": {
+    "canonical": "https://lutu.co.za",
+    "_canonical": "CONFIRM lutu.co.za is registered. Used for canonical URLs, hreflang, sitemap and Open Graph."
+  },
+  "analytics": {
+    "provider": "plausible",
+    "domain": "lutu.co.za",
+    "enabled": false,
+    "_enabled": "Set true once the domain is live and the Plausible site is created. No cookie banner needed either way."
+  },
+  "seasonBanner": {
+    "enabled": true,
+    "bookByDate": "5 December 2026",
+    "_bookByDate": "Shown as 'Book by <date> for Ramadan content.' Set to a real date, e.g. '15 January 2027'. Set enabled:false to hide the banner entirely.",
+    "textEn": " Book by {date} for Ramadan content.",
+    "textAr": " احجز قبل {date} لمحتوى رمضان."
+  },
+  "caseStudies": {
+    "enabled": false,
+    "_enabled": "Stays false until real client work exists. When true, the 'Our work' section appears."
+  }
+}
